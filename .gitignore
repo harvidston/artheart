@@ -1,0 +1,6 @@
+backend/venv/
+backend/.env
+backend/.env.prod
+__pycache__/
+*.py[cod]
+
