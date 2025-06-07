@@ -8,15 +8,18 @@ class CustomUserCreationForm(UserCreationForm):
         model = Artist
         fields = '__all__'
 
+
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = Artist
         fields = '__all__'
 
+
 class SignUpForm(UserCreationForm):
     class Meta:
         model = Artist
         fields = ("username", "email")
+
 
 class LogInForm(forms.Form):
     email = forms.EmailField()

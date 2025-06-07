@@ -13,11 +13,6 @@ class NewArtistSerializer(serializers.ModelSerializer):
         write_only=True
     )
 
-    class Meta:
-        model = Artist
-        fields = ('email', 'username', 'first_name', 'last_name', 'description', 'password', 'token',)
-        read_only_fields = ('token',)
-
     def update(self, instance, validated_data):
         password = validated_data.pop('password', None)
         for (key, value) in validated_data.items():
@@ -26,6 +21,12 @@ class NewArtistSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+    class Meta:
+        model = Artist
+        fields = ('email', 'username', 'first_name', 'last_name', 'description', 'password', 'token',)
+        read_only_fields = ('token',)
+
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.CharField(max_length=255)
@@ -82,23 +83,20 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
 class UserSerializerName(serializers.ModelSerializer):
 
-    class Meta:
-        model = User
-        fields = [ 'username']
-
     def get_name(self, obj):
         name = obj.first_name
         if name == '':
             name = obj.username
         return name
 
+    class Meta:
+        model = User
+        fields = [ 'username']
+
+
 class UserSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField(read_only=True)
     isAdmin = serializers.SerializerMethodField(read_only= True)
-
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email', 'isAdmin', 'name', 'last_name']
 
     def get_isAdmin(self, obj):
         return obj.is_staff
@@ -108,6 +106,11 @@ class UserSerializer(serializers.ModelSerializer):
         if name == '':
             name = obj.username
         return name
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'isAdmin', 'name', 'last_name']
+
 
 class ArtistSerializer(serializers.ModelSerializer):
 
@@ -127,6 +130,7 @@ class ArtistSerializerWithToken(UserSerializer):
         token = RefreshToken.for_user(obj)
         return str(token.access_token)
 
+
 class UserSerializerWithToken(ArtistSerializer):
     token = serializers.SerializerMethodField(read_only = True)
 
@@ -137,6 +141,7 @@ class UserSerializerWithToken(ArtistSerializer):
     def get_token(self, obj):
         token = RefreshToken.for_user(obj)
         return str(token.access_token)
+
 
 class ListFollowersSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source = "subscriber.username", read_only = True)
