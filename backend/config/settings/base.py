@@ -5,7 +5,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-#AUTH_USER_MODEL = 'artists.Artist'
+AUTH_USER_MODEL = 'artists.Artist'
 
 SECRET_KEY = config("SECRET_KEY", default="unsafe-key")
 DEBUG = config("DEBUG", default=True, cast=bool)
@@ -24,6 +24,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
 
+    'artists',
+    'publications',
+    'product',
+    'orders',
 ]
 
 
