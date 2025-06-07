@@ -69,10 +69,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
     )
     token = serializers.CharField(max_length=255, read_only=True)
 
-    class Meta:
-        model = Artist
-        fields = ['email', 'image', 'username', 'password', 'token']
-
     def create(self, validated_data):
         user = Artist.objects.create_user(**validated_data)
         return {
@@ -81,8 +77,12 @@ class RegistrationSerializer(serializers.ModelSerializer):
             'token': user.token
         }
 
-class UserSerializerName(serializers.ModelSerializer):
+    class Meta:
+        model = Artist
+        fields = ['email', 'image', 'username', 'password', 'token']
 
+
+class UserSerializerName(serializers.ModelSerializer):
     def get_name(self, obj):
         name = obj.first_name
         if name == '':
@@ -113,7 +113,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class ArtistSerializer(serializers.ModelSerializer):
-
     class Meta: 
         model = Artist
         fields = ['id', 'username', 'email', 'first_name', 'last_name', 'image','description']
@@ -134,13 +133,13 @@ class ArtistSerializerWithToken(UserSerializer):
 class UserSerializerWithToken(ArtistSerializer):
     token = serializers.SerializerMethodField(read_only = True)
 
-    class Meta:
-        model = Artist
-        fields = ['id', 'username', 'email', 'isAdmin', 'first_name', 'last_name', 'image', 'description', 'token']
-
     def get_token(self, obj):
         token = RefreshToken.for_user(obj)
         return str(token.access_token)
+
+    class Meta:
+        model = Artist
+        fields = ['id', 'username', 'email', 'isAdmin', 'first_name', 'last_name', 'image', 'description', 'token']
 
 
 class ListFollowersSerializer(serializers.ModelSerializer):

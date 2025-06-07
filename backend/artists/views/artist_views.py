@@ -13,7 +13,7 @@ from rest_framework.generics import RetrieveUpdateAPIView
 
 #from artists.serializers import RegistrationSerializer,LoginSerializer, NewArtistSerializer
 #from artists.serializers import UserSerializer, UserSerializerWithToken, ArtistSerializer, ArtistSerializerWithToken, UserSerializerName, ListFollowersSerializer, ListFollowingSerializer
-from artist.serializers import *
+from artists.serializers import *
 from artists.renderers import UserJSONRenderer
 from artists.forms import SignUpForm
 from product.serializers import ProductSerializer
