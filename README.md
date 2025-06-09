@@ -6,12 +6,30 @@
 |![5](https://github.com/user-attachments/assets/9cfc0695-4402-469a-a150-d19fdbc54d9b)|![6](https://github.com/user-attachments/assets/615b9c36-63f0-4735-afeb-02f67662e2ca)|
 
 ## Description
+**ArtHeart** — a unique blend of social networking and e-commerce, all in one creative web platform. This project is a full-stack web application for browsing, publishing, and purchasing products, with built-in user profiles, social interaction, and e-commerce functionality.
+
+Project includes the following key features:
+- Category-based browsing.
+View publications filtered by specific creative categories.
+- Publication management.
+Users can create, edit, and delete their own creative works.
+- User authentication and registration.
+  Secure sign-up and login functionality for managing access and user sessions.
+- Social interaction tools.
+Users can leave comments and likes on publications to engage with the creative community.
+- Wishlist and order processing.
+Ability to create a wishlist of products and place an order.
+- User subscriptions.
+Option to follow favorite user profiles for updates of their latest publications.
+- Publication detail view.
+Access a dedicated page with full information about a selected publication.
+
 ## Technology Stack
 - Django 
 - Django REST Framework
 - Simple JWT
-- React JS
-- Styled components
+- React JS 
+- Styled components 
 - Redux
 - Axios
 - PostgreSQL
@@ -63,11 +81,22 @@ When starting the server, include the environment variable `DJANGO_ENV` with` de
 DJANGO_ENV=prod python manage.py runserver
 ```
 ## Installation
-1. `git clone https://github.com/harvidston/artheart`
-2. `cd backend` `python3 -m venv venv`
-3. `source venv/bin/activate`
-4. `pip install -r requirements.txt`
-5. create `artheart/.env` file with dev variables and values:
+Follow the steps below to get started with this projects development environment.
+1. Clone this repository
+```
+git clone https://github.com/harvidston/artheart
+```
+2. Navigate into backend, create and activate python virtual environment 
+```
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+```
+3. Install python dependencies
+```
+pip install -r requirements.txt
+```
+4. Create `artheart/.env` file with dev variables and values:
 ```
 SECRET_KEY=secret-dev-key
 DEBUG=True
@@ -79,8 +108,19 @@ DB_PASSWORD=dbpassword
 DB_HOST=localhost
 DB_PORT=5432
 ```
-6. `DJANGO_ENV=dev python manage.py runserver`
-7. `cd frontend` `npm install`
-8. `npm start`
+5. Start Django development server with the environment variable `DJANGO_ENV`
+```
+DJANGO_ENV=dev python manage.py runserver
+```
+6. Navigate into frontend and install dependencies from `package.json`
+```
+cd frontend
+npm install
+```
+7. Start React project
+```
+npm start
+```
+You're ready to develop!
 
 
