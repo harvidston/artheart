@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;600;700;800&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Unbounded', cursive;
+}
+html{
+	scroll-behavior:smooth;
+}
+::-moz-selection {
+  background: #899C88;
+}
+::-webkit-selection {
+  background: #899C88;
+}
+::selection {
+  background: #899C88;
+}
+::-webkit-scrollbar{
+	width: 7px;
+	height: 5px;
+}
+::-webkit-scrollbar-track{
+	background: #0F0E0E;
+	height: 100%;
+	width: 7px;
+
+}
+::-webkit-scrollbar-thumb{
+	background: #333334;
+	border-radius: 20px;
+    height: 5px;
+	width: 7px;
+
+
+}
+
+
