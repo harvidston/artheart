@@ -38,22 +38,43 @@ Access a dedicated page with full information about a selected publication.
 ```
 artheart/
 ├── backend/
+│   ├── artists/
+│   ├── orders/
+│   ├── product/
+│   ├── publications/
 │   ├── config/
-│   │   ├── settings/
-│   │   │   ├── __init__.py
-│   │   │   ├── base.py
-│   │   │   ├── dev.py
-│   │   │   └── prod.py
+│   │   ├── asgi.py
+│   │   ├── wsgi.py
 │   │   ├── urls.py
-│   │   └── wsgi.py
+│   │   └── settings/
+│   │       ├── __init__.py
+│   │       ├── base.py
+│   │       ├── dev.py
+│   │       ├── prod.py
+│   ├── static/
+│   ├── media/
 │   ├── manage.py
-│   └── requirements.txt
-|   └── ...
+│   ├── requirements.txt
+│   ├── .env
+│   └── .env.prod
 ├── frontend/
-│   └── ...
-├── .env
-├── .env.prod
-└── .gitignore
+│   ├── public/
+│   ├── src/
+│   │   ├── actions/
+│   │   ├── components/
+│   │   ├── constants/
+│   │   ├── design_media/
+│   │   ├── hooks/
+│   │   ├── pages/
+│   │   ├── reducers/
+│   │   ├── routes/
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── platform.js
+│   ├── package.json
+│   └── package-lock.json
+├── .gitignore
+├── README.md
 ```
 ## Environment Configuration
 [Python-decouple](https://pypi.org/project/python-decouple/) lib helps you to organize your settings so that you can change parameters without having to redeploy your app.
