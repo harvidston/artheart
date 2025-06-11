@@ -122,5 +122,11 @@ npm install
 npm start
 ```
 You're ready to develop!
+## API-Documentation
+Interactive API documentation is automatically generated using [drf-spectacular](https://github.com/tfranzel/drf-spectacular).
 
+- Swagger UI: [http://localhost:8000/api/docs/swagger/](http://localhost:8000/api/docs/swagger/)
+- Redoc: [http://localhost:8000/api/docs/redoc/](http://localhost:8000/api/docs/redoc/)
+- OpenAPI JSON: [http://localhost:8000/api/schema/](http://localhost:8000/api/schema/)
 
+![swaggerUI](https://github.com/user-attachments/assets/65e65d67-af41-4d46-a658-5d6b9b32dd5c)
